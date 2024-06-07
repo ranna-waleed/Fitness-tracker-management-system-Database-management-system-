@@ -1,0 +1,42 @@
+﻿@page
+@model trial.Pages.NutritionModel
+@{
+}
+
+<h1>My  Nutrition Plan and Meals  </h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>TrainerID</th>
+		
+			<th>Nutrition_planID</th>
+			<th>Nutrition_planDuration</th>
+			<th>MealName</th>
+			<th>MealID</th>
+			<th>Number_of_meals </th>
+			<th>Times_per_week</th>
+			<th>Calories</th>
+			<th>Protien</th>
+		
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var nutrition in Model.listNutritionsPlan)
+		{
+			<tr>
+				<td>@nutrition.TrainerID</td>
+				
+				<td>@nutrition.Nutrition_planID</td>
+				<td>@nutrition.Nutrition_planDuration</td>
+				<td>@nutrition.MealName</td>
+				<td>@nutrition.MealID</td>
+				<td>@nutrition.Number_of_meals</td>
+				<td>@nutrition.Times_per_week</td>
+				<td>@nutrition.Calories</td>
+				<td>@nutrition.Protien</td>
+				
+			</tr>
+		}
+	</tbody>
+</table>

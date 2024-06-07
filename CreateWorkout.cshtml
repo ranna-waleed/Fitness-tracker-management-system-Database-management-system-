@@ -1,0 +1,87 @@
+﻿@page
+@model trial.Pages.CreateWorkoutModel
+@{
+}
+<br />
+<h2>New Workout Plan </h2>
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Workout Plan Duration</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="WorkoutPlanDuration" value="@Model.workoutInfo.WorkoutPlanDuration" />
+        </div>
+    </div>
+    <br>
+        <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Plan Level</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" name="PlanLevel" value="@Model.workoutInfo.PlanLevel" />
+            </div>
+        </div>
+        <br>
+        <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Number Of Workouts</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" name="NumberOfWorkouts" value="@Model.workoutInfo.NumberOfWorkouts" />
+            </div>
+            </div>
+            <br>
+           <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Workout Name</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" name="WorkoutName" value="@Model.workoutInfo.WorkoutName" />
+            </div>
+        </div>
+    <br>
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Number Of Sets</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="NumberOfSets" value="@Model.workoutInfo.NumberOfSets" />
+        </div>
+    </div>
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Number Of Reps</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="NumberOfReps" value="@Model.workoutInfo.NumberOfReps" />
+        </div>
+    </div>
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Target Area</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="TargetArea" value="@Model.workoutInfo.TargetArea" />
+        </div>
+    </div>
+    <br>
+
+
+    @if (Model.successMessage.Length > 0)
+        {
+                 <div class="row mb-3">
+                <div class="col-sm-9">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>@Model.successMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row mb-3">
+            <div class="offset-sm-3 col-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-primary" href="/Workout" role="button">Cancel</a>
+            </div>
+        </div>
+ </form>

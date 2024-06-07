@@ -1,0 +1,41 @@
+﻿@page
+@model trial.Pages.WorkoutModel
+@{
+}
+
+<h1> My Workout plan </h1>
+<a class='btn btn-primary btn-s' href='/CreateWorkout'>Add new Workout Plan</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>UserID</th>
+			<th>Workout Plan Duration</th>
+			<th>Plan Level</th>
+			<th>Number Of Workouts</th>
+			<th>Workout Name</th>
+			<th>Number Of Sets</th>
+			<th>Number Of Reps</th>
+			<th>Target Area</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var workout in Model.listWorkout)
+		{
+		<tr>
+				<td>@workout.UserID</td>
+				<td>@workout.WorkoutPlanDuration</td>
+				<td>@workout.PlanLevel</td>
+				<td>@workout.NumberOfWorkouts</td>
+				<td>@workout.WorkoutName</td>
+				<td>@workout.NumberOfSets</td>
+				<td>@workout.NumberOfReps</td>
+				<td>@workout.TargetArea</td>
+			<td>
+				<a class='btn btn-primary btn-sm' href='/EditWorkout?UserID=@workout.UserID'>Edit</a>
+				<a class='btn btn-danger btn-sm' href='/deletforworkout?UserID=@workout.UserID'>Delete</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

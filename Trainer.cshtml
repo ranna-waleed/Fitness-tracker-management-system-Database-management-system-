@@ -1,0 +1,45 @@
+﻿@page
+@model trial.Pages.TrainerModel
+@{
+}
+
+<h1> Nutrition Plan and Meals of User </h1>
+<a class='btn btn-primary btn-s' href='/Create'>New Plan For Users</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>TrainerID</th>
+			
+			<th>Nutrition_plan ID</th>
+			<th>Nutrition_plan Duration</th>
+			<th>Meal Name</th>
+			<th>Meal ID</th>
+			<th>Number_of_meals </th>
+			<th>Times_per_week</th>
+			<th>Calories</th>
+			<th>Protien</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var nutrition in Model.listNutritions)
+		{
+		<tr>
+				<td>@nutrition.TrainerID</td>
+				
+				<td>@nutrition.Nutrition_planID</td>
+				<td>@nutrition.Nutrition_planDuration</td>
+				<td>@nutrition.MealName</td>
+				<td>@nutrition.MealID</td>
+				<td>@nutrition.Number_of_meals</td>
+				<td>@nutrition.Times_per_week</td>
+				<td>@nutrition.Calories</td>
+				<td>@nutrition.Protien</td>
+			<td>
+					<a class='btn btn-primary btn-sm' href='/Edit?TrainerID=@nutrition.TrainerID'>Edit</a>
+				<a class='btn btn-danger btn-sm' href='/deletefortrainer?TrainerID=@nutrition.TrainerID'>Delete</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

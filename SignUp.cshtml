@@ -1,0 +1,89 @@
+﻿@page
+@model trial.Pages.SignUpModel
+@{
+}
+<br />
+<h2>Registeration Form</h2>
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Name" value="@Model.signUpInfo.Name" />
+        </div>
+    </div>
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Email" value="@Model.signUpInfo.Email" />
+        </div>
+    </div>
+    <p>
+        <strong style>
+            Please use the following Email prefixes:
+            <br />
+            Admin: a-
+            <br />
+            User: u-
+            <br />
+            Trainer: t-
+        </strong>
+    </p>
+    <br />
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" name="Password" value="@Model.signUpInfo.Password" />
+        </div>
+    </div>
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Birthdate</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Birthdate" value="@Model.signUpInfo.Birthdate" />
+        </div>
+    </div>
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Phone number</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="number" value="@Model.signUpInfo.number" />
+        </div>
+    </div>
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">CountryCode</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="CountryCode" value="@Model.signUpInfo.CountryCode" />
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Confirm</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Index" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,59 @@
+﻿@page
+@using System.Data.SqlClient;
+@*
+    delete from the table of trainers that is in the page of the admin
+ *@
+ 
+@{
+    try
+    {
+        String TrainerID = Request.Query["TrainerId"];
+        String connectionString = "Data Source=DESKTOP-TVFTFOF;Initial Catalog=trial;Integrated Security=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String sql = "DELETE FROM Trainer WHERE TrainerID=@TrainerID";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@TrainerID", TrainerID);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+    Response.Redirect("/Admins");
+}
+@* 
+    delete from the table of users that is in the page of the admin
+ *@
+@{
+    try
+    {
+        String UserID = Request.Query["UserId"];
+        String connectionString = "Data Source=DESKTOP-TVFTFOF;Initial Catalog=trial;Integrated Security=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String sql = "DELETE FROM user_ WHERE UserID=@UserID";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@UserID", UserID);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+    Response.Redirect("/Admins");
+}
+
+
+
+

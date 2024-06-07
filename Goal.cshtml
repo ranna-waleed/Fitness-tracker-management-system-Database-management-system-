@@ -1,0 +1,35 @@
+﻿@page
+@model trial.Pages.GoalModel
+@{
+}
+<h1> Goal Plan </h1>
+<a class='btn btn-primary btn-s' href='/CreateGoal'>Add new Goal</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>User ID</th>
+			<th>Trainer ID</th>
+			<th>Goal ID</th>
+			<th>Goal Type</th>
+			<th>Target Value</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var goal in Model.listGoals)
+		{
+		<tr>
+				<td>@goal.UserID</td>
+				<td>@goal.TrainerID</td>
+				<td>@goal.GoalID</td>
+				<td>@goal.GoalType</td>
+				<td>@goal.TargetValue</td>
+		
+			<td>
+					<a class='btn btn-primary btn-sm' href='/EditGoal?UserID=@goal.UserID'>Edit</a>
+					<a class='btn btn-danger btn-sm' href='/deleteforgoal?UserID=@goal.UserID'>Delete</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

@@ -1,0 +1,34 @@
+﻿@page
+@model trial.Pages.HealthModel
+@{
+}
+<h1> My Health </h1>
+<a class='btn btn-primary btn-s' href='/CreateHealth'>Add new Health Metric Plan</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>User ID</th>
+			<th>Metrics ID</th>
+			<th>inbodyScore</th>
+			<th>Weight</th>
+			<th>Height</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var health in Model.listHealth)
+		{
+		<tr>
+				<td>@health.UserID</td>
+				<td>@health.MetricsID</td>
+				<td>@health.inbodyScore</td>
+				<td>@health.Weight</td>
+				<td>@health.Height</td>
+			<td>
+				<a class='btn btn-primary btn-sm' href='/EditHealth?UserID=@health.UserID'>Edit</a>
+				<a class='btn btn-danger btn-sm' href='/deleteforhealth?UserID=@health.UserID'>Delete</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

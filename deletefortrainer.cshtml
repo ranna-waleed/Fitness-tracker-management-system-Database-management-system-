@@ -1,0 +1,31 @@
+﻿@page
+@using System.Data.SqlClient;
+@*
+delete from the table in the page of the trainer
+ *@
+
+
+@{
+    try
+
+    {
+        String TrainerID = Request.Query["TrainerID"];
+        String connectionString = "Data Source=DESKTOP-TVFTFOF;Initial Catalog=trial;Integrated Security=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String sql = "DELETE FROM Nutrition WHERE TrainerID=@TrainerID";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@TrainerID", TrainerID);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+    Response.Redirect("/Trainer");
+}

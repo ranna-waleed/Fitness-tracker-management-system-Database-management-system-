@@ -1,0 +1,104 @@
+﻿@page
+@model trial.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+@* <br />
+<h2>Login</h2>
+
+
+
+<form method="post">
+    <label>Email:</label>
+    <input asp-for="LoginInfo.Email" required />
+    <br /><br />
+    <label>Password:</label>
+    <input type="password" asp-for="LoginInfo.Password" required />
+    <br><br />
+    <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+ *@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <!-- Include any additional stylesheets or scripts here -->
+</head>
+<body>
+    <h1>Login</h1>
+    
+    <form method="post" asp-page-handler="OnPost">
+        <div>
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" name="Email" asp-for="Email" required />
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div>
+            <label for="Password">Password:</label>
+            <input type="password" id="Password" name="Password" asp-for="Password" required />
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+    <!-- Display validation errors -->
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <!-- Include any additional content or scripts here -->
+</body>
+</html>
+
+@* @if (Model.errorMessage.Length > 0)
+{
+    <div class="alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Email" value="@Model.loginInfo.Email" />
+        </div>
+    </div>
+    <br>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" name="Password" value="@Model.loginInfo.Password" />
+        </div>
+    </div>
+  
+ 
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Index" role="button">Cancel</a>
+        </div>
+    </div>
+</form>
+ *@

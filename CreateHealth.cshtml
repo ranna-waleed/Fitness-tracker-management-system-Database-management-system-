@@ -1,0 +1,65 @@
+﻿@page
+@model trial.Pages.CreateHealthModel
+@{
+}
+<br />
+<h2>New Health Plan </h2>
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Metrics ID</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="MetricsID" value="@Model.healthInfo.MetricsID" />
+        </div>
+    </div>
+    <br>
+        <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">inbodyScore</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" name="inbodyScore" value="@Model.healthInfo.inbodyScore" />
+            </div>
+        </div>
+        <br>
+        <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Weight</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" name="Weight" value="@Model.healthInfo.Weight" />
+            </div>
+            </div>
+            <br>
+           <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Height</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" name="Height" value="@Model.healthInfo.Height" />
+            </div>
+        </div>
+    <br>
+
+
+    @if (Model.successMessage.Length > 0)
+        {
+                 <div class="row mb-3">
+                <div class="col-sm-9">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>@Model.successMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row mb-3">
+            <div class="offset-sm-3 col-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-primary" href="/Health" role="button">Cancel</a>
+            </div>
+        </div>
+ </form>
